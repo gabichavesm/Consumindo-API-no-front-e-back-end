@@ -1,0 +1,41 @@
+
+<body>
+    
+</body>
+
+
+
+<script>
+    
+    async function getContent() {
+
+        try {
+            const response = await fetch('http://localhost:4567/')
+            console.log(response)
+            const data = await response.json()
+
+            show(data)
+
+        } catch (error) {
+            console.log(error)    
+        }
+        
+    }
+
+    getContent()
+
+    function show(users) {
+        // [user1, user2, user3]
+        let output = ''
+
+        for( let user of users) {
+            output += `<li>${user.name}</li>`
+
+        }
+        
+        document.querySelector('main').innerHTM(output)
+
+    }
+
+</script>
+
